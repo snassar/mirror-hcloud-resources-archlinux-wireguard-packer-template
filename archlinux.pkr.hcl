@@ -16,6 +16,7 @@ locals {
   system-locale = "en_US.UTF-8"
   system-timezone = "UTC"
   extra-packages = ""
+  extra-services = ""
 }
 
 source "hcloud" "archlinux" {
@@ -89,7 +90,7 @@ build {
     script = "files/11-install-chroot.sh"
     environment_vars = [
       "ARCH_RELEASE=${ local.arch-release}",
-      "EXTRA_PACKAGES=${ local.extra-packages }",
+      "EXTRA_SERVICES=${ local.extra-services }",
       "KEYMAP=${ local.system-keymap }",
       "LOCALE=${ local.system-locale }",
       "TIMEZONE=${ local.system-timezone }"

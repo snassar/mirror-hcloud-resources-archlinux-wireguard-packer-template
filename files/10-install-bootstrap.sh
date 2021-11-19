@@ -30,7 +30,7 @@ set -euo pipefail
 echo 'Server = ${ARCH_MIRROR}/\$repo/os/\$arch' > /etc/pacman.d/mirrorlist
 pacman-key --init
 pacman-key --populate archlinux
-pacstrap -d /mnt base linux linux-firmware cloud-guest-utils cloud-init openssh os-prober qemu-guest-agent sudo systemd-resolvconf grub btrfs-progs iptables-nft ${EXTRA_PACKAGES}
+pacstrap -d /mnt base linux linux-firmware cloud-guest-utils cloud-init openssh os-prober qemu-guest-agent sudo systemd-resolvconf grub btrfs-progs iptables-nft wireguard-tools ${EXTRA_PACKAGES}
 genfstab -U /mnt > /mnt/etc/fstab
 echo 'proc /proc proc defaults,hidepid=2 0 0' >> /mnt/etc/fstab
 EOF

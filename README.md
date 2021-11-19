@@ -1,24 +1,19 @@
-# archlinux packer template for Hetzner Cloud
+# archlinux wireguard packer template for Hetzner Cloud
 
-This repo is used to build archlinux images (as snapshots) for use with
-[Hetzner Cloud](https://www.hetzner.de/cloud) by means of HashiCorp's
-[Packer](https://packer.io/).
+This repo is used to build archlinux wireguard images (as snapshots) for use with [Hetzner Cloud](https://www.hetzner.de/cloud) by means of HashiCorp's [Packer](https://packer.io/).
 
 ## Building Images using this Repo
 
 Please ensure that you have done the following:
 
   - installed `packer` on your development machine
-  - set the `HCLOUD_TOKEN` environment variable to your API token
-  - reviewed/overriden the templates' variables (as necessary)
+  - set the `hcloud_token` and `ssh_keys` using a `<filename>.auto.pkrvars.hcl` file
 
 ### Internals
 
-The resulting images are intended to support a Terraform-based (or
-custom) workflow that feels close to the one of native Hetzner VMs.
+The resulting images are intended to support a Terraform-based (or custom) workflow that feels close to the one of native Hetzner VMs.
 
-In particular, support for the following features available on
-standard Hetzner VMs is desired:
+In particular, support for the following features available on standard Hetzner VMs is desired:
 
   - dynamic hostname
   - dynamic root ssh keys
@@ -26,6 +21,10 @@ standard Hetzner VMs is desired:
   - full IPv6/IPv4 support
   - Hetzner Cloud Networks
   - Hetzner Cloud Volumes
+
+## Contributing
+
+While the repositories are mirrored on Github and Gitlab, all work happens on Sourcehut.
 
 ## License
 
